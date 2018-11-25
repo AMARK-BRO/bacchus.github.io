@@ -1,0 +1,24 @@
+{
+  "squadName" : "WINE HOME",
+  "homeTown" : "Metro City",
+  "formed" : 2016,
+  "secretBase" : "Super tower",
+  "active" : true,
+  "members" : [
+    {
+      "name" : "Molecule Man",
+      "age" : "⭐⭐⭐⭐⭐",
+      "secretIdentity" : "⭐⭐⭐⭐",
+    },
+    {
+      "name" : "Madame Uppercut",
+      "age" : "⭐⭐⭐",
+      "secretIdentity" : "⭐⭐⭐⭐",
+    },
+    {
+      "name" : "Eternal Flame",
+      "age" : "⭐⭐⭐⭐",
+      "secretIdentity" : "⭐⭐⭐⭐⭐",
+    }
+  ]
+}

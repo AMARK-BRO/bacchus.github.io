@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>酒神</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/w3.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
+    <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
+    <!--引用百度地图API-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gijhcxHg99YrN1jI90uCpeB2GuMZ7swB"></script>
+</head>
+<body>
+    <UL>
+      <li><a href=5thPage.html>啤酒</a></li>
+      <li><a href=4thPage.html>鸡尾酒</a></li>
+      <li><a href=2ndPage.html>洋酒</a></li>
+      <li><a href=3stPage.html>红酒</a></li>
+      <li><a href=index.html>首页</a></li>
+</UL>
+	<div class="w3-content w3-display-container" style="max-width:2000px">
+  <img class="mySlides" src="../img/1.jpg" style="width:100%">
+  <img class="mySlides" src="../img/2.jpg" style="width:100%">
+  <img class="mySlides" src="../img/3.jpg" style="width:100%">
+  <div class="w3-center w3-section w3-large w3-text-white w3-display-bottomleft" style="width:100%">
+    <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">❮</div>
+    <div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">❯</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+<!-- 文字段落的设计!-->
+
+		<div class="title">
+		兰陵美酒郁金香，玉碗盛来琥珀光</div>
+		<div class="content">
+		<div>
+		酒文化是指酒在生产、销售、消费过程中所产生的物质文化和精神文化总称。<br>酒文化包括酒的制法、品法、作用、历史等酒文化现象。<br>
+		既有酒自身的物质特征，也有品酒所形成的精神内涵，是制酒饮酒活动过程中形成的特定文化形态。 <br>				
+		<p>酒文化在中国源远流长，不少文人学士写下了品评鉴赏美酒佳酿的著述，<br>
+		留下了斗酒、写诗、作画、养生、宴会、饯行等酒神佳话。<br>
+		酒作为一种特殊的文化载体，在人类交往中占有独特的地位。<br>
+		酒文化已经渗透到人类社会生活中的各个领域,<br>
+		对人文生活、文学艺术、医疗卫生、工农业生产、政治经济各方面都有着巨大影响和作用。<br>
+	    </p></div>
+		<div class="code text-center">
+		     <img src="../img/二维码.png" alt="二维码" style="width:120px; height:120px">
+		 </div>
+		     <div>扫描该二维码交流</div>
+		      <!--百度地图容器-->
+		      <br>
+		      <p>酒产地查询地图</p>
+    <div style="width:1500px;height:950px;border:#ccc solid 1px;font-size:12px;text-align: center;" id="map"></div>
+		</div>
+		</div>				
+		</div>
+		</div>
+</body>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){ 
+      map = new BMap.Map("map"); 
+      map.centerAndZoom(new BMap.Point(116.475686,39.958299),12);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+    }
+    //向地图添加控件
+    function addMapControl(){
+      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+      map.addControl(scaleControl);
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+      map.addControl(navControl);
+      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+      map.addControl(overviewControl);
+    }
+    var map;
+      initMap();
+     //图片slideshow
+     var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+      </script>
+</html>
